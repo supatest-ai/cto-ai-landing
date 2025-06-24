@@ -1,0 +1,7 @@
+Contact: https://form.typeform.com/to/XEcj0O5J
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://keys.openpgp.org/
+Preferred-Languages: en
+Canonical: https://ctoxai.com/.well-known/security.txt
+Policy: https://ctoxai.com/security-policy
+Acknowledgments: https://ctoxai.com/security-acknowledgments 

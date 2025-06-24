@@ -1,0 +1,30 @@
+{
+  "name": "CTOxAI - Private WhatsApp Community for CTOs Implementing AI",
+  "short_name": "CTOxAI",
+  "description": "Join 200+ CTOs in a private WhatsApp group sharing real experiences, solutions, and insights about AI implementation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fef2f2",
+  "theme_color": "#ef4444",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "social"],
+  "lang": "en-US",
+  "dir": "ltr"
+} 

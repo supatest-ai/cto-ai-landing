@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+    CTOxAI Community: Community-driven platform
+    Contact: https://form.typeform.com/to/XEcj0O5J
+    Location: Global
+
+/* THANKS */
+    The 200+ CTOs who make this community valuable
+    Open source contributors
+    Technology leaders sharing knowledge
+
+/* SITE */
+    Last update: 2024/12/19
+    Language: English
+    Doctype: HTML5
+    IDE: Various editors used by contributors
+    
+/* TECHNOLOGY */
+    HTML5, CSS3
+    React, TypeScript
+    Tailwind CSS
+    Vite
+    Lucide React Icons 

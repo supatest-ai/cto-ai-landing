@@ -1,0 +1,124 @@
+# agents.txt for CTOxAI
+# Advanced bot and crawler configuration
+# This file provides additional instructions for web crawlers beyond robots.txt
+
+# Contact information
+Contact: https://form.typeform.com/to/XEcj0O5J
+Webmaster: https://form.typeform.com/to/XEcj0O5J
+
+# Preferred crawling hours (UTC)
+# Light traffic hours to minimize impact on user experience
+Crawl-time: 02:00-06:00
+
+# Global rate limiting
+# Requests per minute to prevent server overload
+Rate-limit: 30
+
+# Specific agent configurations
+Agent: Googlebot
+Crawl-delay: 1
+Rate-limit: 60
+
+Agent: Bingbot
+Crawl-delay: 2
+Rate-limit: 30
+
+Agent: Slurp
+Crawl-delay: 3
+Rate-limit: 20
+
+Agent: DuckDuckBot
+Crawl-delay: 2
+Rate-limit: 25
+
+Agent: Baiduspider
+Crawl-delay: 5
+Rate-limit: 15
+
+Agent: YandexBot
+Crawl-delay: 3
+Rate-limit: 20
+
+# Social media crawlers
+Agent: facebookexternalhit
+Crawl-delay: 1
+Rate-limit: 30
+
+Agent: Twitterbot
+Crawl-delay: 1
+Rate-limit: 30
+
+Agent: LinkedInBot
+Crawl-delay: 2
+Rate-limit: 25
+
+# SEO and monitoring tools
+Agent: AhrefsBot
+Crawl-delay: 10
+Rate-limit: 10
+
+Agent: SemrushBot
+Crawl-delay: 10
+Rate-limit: 10
+
+Agent: MJ12bot
+Crawl-delay: 15
+Rate-limit: 5
+
+# Archive crawlers
+Agent: ia_archiver
+Crawl-delay: 5
+Rate-limit: 15
+
+# News aggregators
+Agent: GoogleNews
+Crawl-delay: 1
+Rate-limit: 20
+
+# Site monitoring
+Agent: UptimeRobot
+Crawl-delay: 0
+Rate-limit: 120
+
+Agent: Pingdom
+Crawl-delay: 0
+Rate-limit: 60
+
+# API endpoints for structured access
+# Provide alternative access methods for bots that support it
+API: https://ctoxai.com/api/sitemap
+API: https://ctoxai.com/api/status
+
+# Preferred formats
+Accept: application/json, text/html, application/xml
+
+# Cache policy for crawlers
+Cache-control: public, max-age=3600
+
+# Content freshness indicator
+Content-update-frequency: weekly
+
+# Site statistics for crawlers
+Pages: ~5
+Last-modified: 2024-12-19
+Size: small
+
+# Preferred user agent for contact
+Contact-agent: Mozilla/5.0 (compatible; CTOxAI-Bot/1.0; +https://ctoxai.com/bot-info)
+
+# Request headers for better crawling
+Request-header: Accept-Encoding: gzip, deflate
+Request-header: Accept-Language: en-US,en;q=0.9
+
+# Disallowed aggressive crawlers
+Disallow-agent: SiteSucker
+Disallow-agent: WebZIP
+Disallow-agent: Website Downloader
+Disallow-agent: HTTrack
+
+# Monitoring and analytics
+Analytics: Google Analytics, Google Search Console
+Monitoring: Uptime monitoring, Core Web Vitals
+
+# Additional notes
+Notes: This is a landing page for a private WhatsApp community for CTOs implementing AI. Please crawl respectfully to maintain optimal user experience. 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>CTOxAI - AI Implementation Insights</title>
+    <link>https://ctoxai.com/</link>
+    <description>Latest insights and updates from the CTOxAI community - a private WhatsApp group for CTOs implementing AI</description>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 19 Dec 2024 12:00:00 GMT</lastBuildDate>
+    <pubDate>Thu, 19 Dec 2024 12:00:00 GMT</pubDate>
+    <ttl>1440</ttl>
+    <atom:link href="https://ctoxai.com/rss.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>community@ctoxai.com (CTOxAI Community)</managingEditor>
+    <webMaster>webmaster@ctoxai.com (CTOxAI Technical Team)</webMaster>
+    <category>Technology</category>
+    <category>Artificial Intelligence</category>
+    <category>Leadership</category>
+    <category>CTO</category>
+    <image>
+      <url>https://ctoxai.com/logo.png</url>
+      <title>CTOxAI</title>
+      <link>https://ctoxai.com/</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+
+    <item>
+      <title>CTOxAI Community Reaches 200+ Members</title>
+      <link>https://ctoxai.com/#community-milestone</link>
+      <description>Our private WhatsApp community for CTOs implementing AI has reached 200+ members, with approximately 40 meaningful discussions happening daily. Join the conversation about real AI implementation challenges and solutions.</description>
+      <pubDate>Thu, 19 Dec 2024 12:00:00 GMT</pubDate>
+      <guid isPermaLink="false">ctoxai-200-members-2024-12-19</guid>
+      <category>Community</category>
+      <category>Milestone</category>
+      <dc:creator>CTOxAI Community</dc:creator>
+    </item>
+
+    <item>
+      <title>Weekly Discussion Highlights: AI Cost Management</title>
+      <link>https://ctoxai.com/#weekly-highlights</link>
+      <description>This week's most valuable discussions focused on managing LLM costs, evaluating AI vendors, and hiring AI engineers. CTOs shared practical strategies for controlling AI implementation expenses while maintaining quality.</description>
+      <pubDate>Mon, 16 Dec 2024 09:00:00 GMT</pubDate>
+      <guid isPermaLink="false">weekly-highlights-2024-12-16</guid>
+      <category>AI Costs</category>
+      <category>Weekly Highlights</category>
+      <dc:creator>CTOxAI Community</dc:creator>
+    </item>
+
+    <item>
+      <title>Zero Sales Pitches Policy</title>
+      <link>https://ctoxai.com/#community-policy</link>
+      <description>Our commitment to maintaining a vendor-free environment where CTOs can share honest experiences without commercial influence. Learn why this policy makes our community uniquely valuable for technology leaders.</description>
+      <pubDate>Fri, 13 Dec 2024 15:00:00 GMT</pubDate>
+      <guid isPermaLink="false">zero-sales-policy-2024-12-13</guid>
+      <category>Community Policy</category>
+      <category>Values</category>
+      <dc:creator>CTOxAI Community</dc:creator>
+    </item>
+
+  </channel>
+</rss> 

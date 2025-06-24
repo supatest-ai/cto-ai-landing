@@ -1,0 +1,11 @@
+# ads.txt for ctoxai.com
+# This file indicates our advertising policies and authorized sellers
+
+# CTOxAI does not currently use display advertising
+# This file exists to prevent unauthorized ad serving
+
+# If we ever implement advertising, authorized sellers will be listed here
+# Format: domain, publisher_id, relationship, certification_authority
+
+# Contact for advertising inquiries: https://form.typeform.com/to/XEcj0O5J
+# Last updated: 2024-12-19 
