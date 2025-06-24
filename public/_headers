@@ -1,0 +1,113 @@
+# Headers for CTOxAI - Optimized for Performance and Security
+
+# Static assets - Long cache with immutable flag
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# JavaScript and CSS files - Long cache
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Images - Long cache
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts - Very long cache
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.eot
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files - Short cache for content updates
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Root HTML
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# SEO files - Medium cache
+/robots.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+/sitemap.xml
+  Cache-Control: public, max-age=604800
+  Content-Type: application/xml
+
+/rss.xml
+  Cache-Control: public, max-age=604800
+  Content-Type: application/rss+xml
+
+/agents.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+/humans.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+/ads.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+/security.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+/.well-known/security.txt
+  Cache-Control: public, max-age=604800
+  Content-Type: text/plain
+
+# Manifest and service worker
+/site.webmanifest
+  Cache-Control: public, max-age=604800
+  Content-Type: application/manifest+json
+
+/service-worker.js
+  Cache-Control: public, max-age=86400
+  Content-Type: application/javascript
+
+# Browser config
+/browserconfig.xml
+  Cache-Control: public, max-age=604800
+  Content-Type: application/xml 

@@ -16,30 +16,54 @@
     AddOutputFilterByType DEFLATE application/ld+json
 </IfModule>
 
-# Browser Caching
+# Browser Caching - Optimized for Performance
 <IfModule mod_expires.c>
     ExpiresActive on
-    # Images
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType image/webp "access plus 1 month"
+    # Images - Long cache for static assets
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
-    # CSS and JavaScript
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
-    # Fonts
+    # CSS and JavaScript - Long cache for hashed assets
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    # Fonts - Very long cache
     ExpiresByType application/x-font-ttf "access plus 1 year"
     ExpiresByType font/opentype "access plus 1 year"
     ExpiresByType application/x-font-woff "access plus 1 year"
     ExpiresByType application/font-woff2 "access plus 1 year"
+    # HTML - Short cache for content updates
+    ExpiresByType text/html "access plus 1 hour"
+    # SEO files - Medium cache
+    ExpiresByType text/xml "access plus 1 week"
+    ExpiresByType application/xml "access plus 1 week"
+    ExpiresByType application/rss+xml "access plus 1 week"
     # Others
     ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 year"
     ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# Cache Control Headers for Performance
+<IfModule mod_headers.c>
+    # Set cache headers for static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Set cache headers for HTML files
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+    
+    # Set cache headers for SEO files
+    <FilesMatch "\.(xml|txt|json)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
 </IfModule>
 
 # Security Headers
