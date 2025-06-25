@@ -1,7 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ArrowRight, Brain, Sparkles, ArrowDown, ArrowUpRight, Triangle, Circle, Diamond } from 'lucide-react';
+import { useAnalytics } from './useAnalytics';
+import { trackCTAClick, trackTypeformRedirect, trackFAQInteraction, trackTestimonialView, trackTopicCardHover } from './analytics';
 
 function App() {
+  // Initialize analytics tracking
+  useAnalytics();
+
   // Add FAQ structured data
   useEffect(() => {
     const faqSchema = {
@@ -243,7 +248,7 @@ function App() {
       {/* Main Content */}
       <main id="main-content">
         {/* Hero Section */}
-        <header className="relative bg-red-50">
+        <header className="relative bg-red-50" data-section="hero">
           <div className="max-w-5xl mx-auto px-6 py-20">
             <div className="text-center max-w-3xl mx-auto">
               <div className="flex items-center justify-center mb-8">
@@ -293,7 +298,7 @@ function App() {
         </header>
 
         {/* About Section */}
-        <section className="py-20 bg-white" aria-labelledby="about-heading">
+        <section className="py-20 bg-white" aria-labelledby="about-heading" data-section="about">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12 relative">
               <div className="absolute -top-4 left-1/4 text-yellow-400 opacity-30 pointer-events-none" aria-hidden="true">
@@ -321,7 +326,7 @@ function App() {
         </section>
 
         {/* Recent Conversations Section */}
-        <section className="py-20 bg-red-50" aria-labelledby="topics-heading">
+        <section className="py-20 bg-red-50" aria-labelledby="topics-heading" data-section="topics">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-16 relative">
               <div className="absolute -top-6 left-1/3 text-green-400 opacity-35 pointer-events-none" aria-hidden="true">
@@ -340,7 +345,13 @@ function App() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4" role="list" aria-label="Discussion topics">
               {topics.map((topic, index) => (
-                <div key={index} className="bg-white rounded-lg border border-gray-200 p-4 hover:bg-gray-50 hover:border-gray-300 transition-colors duration-200 relative" role="listitem" itemScope itemType="https://schema.org/DiscussionForumPosting">
+                <div 
+                  key={index} 
+                  className="bg-white rounded-lg border border-gray-200 p-4 hover:bg-gray-50 hover:border-gray-300 transition-colors duration-200 relative" 
+                  role="listitem" 
+                  itemScope itemType="https://schema.org/DiscussionForumPosting"
+                  onMouseEnter={() => trackTopicCardHover(topic, index)}
+                >
                   <div className="absolute -top-2 -right-2 opacity-25 pointer-events-none" aria-hidden="true">
                     {index % 4 === 0 && <Sparkles className="w-3 h-3 text-green-400" />}
                     {index % 4 === 1 && <ArrowUpRight className="w-3 h-3 text-blue-400" />}
@@ -355,7 +366,7 @@ function App() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-white" aria-labelledby="testimonials-heading">
+        <section className="py-20 bg-white" aria-labelledby="testimonials-heading" data-section="testimonials">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-16 relative">
               <div className="absolute -top-5 left-1/3 text-green-500 opacity-30 pointer-events-none" aria-hidden="true">
@@ -371,7 +382,13 @@ function App() {
 
             <div className="grid md:grid-cols-2 gap-6" role="list" aria-label="Member testimonials">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg border border-gray-200 p-6 relative hover:border-gray-300 transition-colors duration-200" role="listitem" itemScope itemType="https://schema.org/Review">
+                <div 
+                  key={index} 
+                  className="bg-gray-50 rounded-lg border border-gray-200 p-6 relative hover:border-gray-300 transition-colors duration-200" 
+                  role="listitem" 
+                  itemScope itemType="https://schema.org/Review"
+                  onMouseEnter={() => trackTestimonialView(testimonial.name, index)}
+                >
                   <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating" className="hidden">
                     <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
                     <meta itemProp="bestRating" content="5" />
@@ -394,7 +411,7 @@ function App() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-red-50" aria-labelledby="faq-heading">
+        <section className="py-20 bg-red-50" aria-labelledby="faq-heading" data-section="faq">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-black mb-4">
@@ -407,7 +424,16 @@ function App() {
 
             <div className="space-y-6">
               {faqData.map((faq, index) => (
-                <details key={index} className="bg-white rounded-lg border border-gray-200 p-6 hover:border-gray-300 transition-colors duration-200" itemScope itemType="https://schema.org/Question">
+                <details 
+                  key={index} 
+                  className="bg-white rounded-lg border border-gray-200 p-6 hover:border-gray-300 transition-colors duration-200" 
+                  itemScope itemType="https://schema.org/Question"
+                  onToggle={(e) => {
+                    if ((e.target as HTMLDetailsElement).open) {
+                      trackFAQInteraction(faq.question, index);
+                    }
+                  }}
+                >
                   <summary className="font-semibold text-gray-900 cursor-pointer text-lg" itemProp="name">
                     {faq.question}
                   </summary>
@@ -421,7 +447,7 @@ function App() {
         </section>
 
         {/* How it works + CTA Section */}
-        <section className="py-20 bg-white" aria-labelledby="how-it-works-heading">
+        <section className="py-20 bg-white" aria-labelledby="how-it-works-heading" data-section="cta">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 id="how-it-works-heading" className="text-3xl md:text-4xl font-bold mb-8 text-black">
@@ -461,6 +487,10 @@ function App() {
                 className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors duration-200 inline-flex items-center group shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 aria-label="Join the CTOxAI WhatsApp group"
                 itemScope itemType="https://schema.org/Action"
+                onClick={() => {
+                  trackCTAClick('bottom_cta', 'Join the Group');
+                  trackTypeformRedirect();
+                }}
               >
                 <span itemProp="name">Join the Group</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
